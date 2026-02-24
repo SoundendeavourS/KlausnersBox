@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Klausner's Box | Entry Portal</title>
+    <style>
+        :root {
+            --lcd-green: #33ff33;
+            --terminal-black: #050505;
+            --ui-border: rgba(51, 255, 51, 0.4);
+            --warm-text: #d1d1d1;
+        }
+
+        body, html {
+            margin: 0; padding: 0;
+            background-color: #000;
+            font-family: 'Courier New', Courier, monospace;
+            color: var(--lcd-green);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Banner Styling */
+        .banner {
+            width: 100%;
+            max-width: 1200px;
+            margin-top: 20px;
+            border: 1px solid #222;
+        }
+
+        .banner img {
+            width: 100%;
+            display: block;
+        }
+
+        /* Portal Layout */
+        .portal-content {
+            max-width: 850px;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .cta-container {
+            margin: 40px 0;
+        }
+
+        .label-text {
+            font-size: 0.8rem;
+            letter-spacing: 5px;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        /* The Button */
+        .enter-btn {
+            background: transparent;
+            border: 1px solid var(--lcd-green);
+            color: var(--lcd-green);
+            padding: 20px 50px;
+            font-size: 1.2rem;
+            text-decoration: none;
+            letter-spacing: 4px;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .enter-btn:hover {
+            background: var(--lcd-green);
+            color: black;
+            box-shadow: 0 0 20px var(--lcd-green);
+        }
+
+        /* The Warm Invitation */
+        .welcome-invitation {
+            margin-top: 50px;
+            padding: 20px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .welcome-invitation p {
+            font-family: 'Georgia', serif;
+            font-style: italic;
+            color: var(--warm-text);
+            line-height: 1.8;
+            font-size: 1.25rem;
+        }
+
+        /* Final Environmental Note */
+        .env-note {
+            margin-top: 60px;
+            font-size: 0.85rem;
+            opacity: 0.8;
+            letter-spacing: 1px;
+        }
+
+        @media (max-width: 600px) {
+            .enter-btn { width: 80%; padding: 20px 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="banner">
+        <img src="kblab.jpg" alt="Klausner's Box Field Equipment">
+    </div>
+
+    <div class="portal-content">
+        
+        <div class="cta-container">
+            <span class="label-text">JOIN THE STORY</span>
+            <a href="station.html" class="enter-btn">ENTER THE LAB</a>
+        </div>
+
+        <div class="welcome-invitation">
+            <p>
+                Welcome to the "Klausner’s Box Project," where concept album meets short story. 
+                You are about to embark on a sonic journey. Put on your headphones or turn up 
+                your high-fidelity speakers, get comfortable, and follow the story as it unfolds over time.
+            </p>
+        </div>
+
+        <div class="env-note">
+            <em>[Prepare your environment. High-frequency monitoring recommended.]</em>
+        </div>
+
+    </div>
+
+</body>
+</html>

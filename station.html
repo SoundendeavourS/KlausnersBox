@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Klausner's Box | Research Station</title>
+    <script src="research_data.js"></script>
+    <style>
+        :root {
+            --lcd-green: #33ff33;
+            --lcd-dim: #1a8a1a;
+            --terminal-black: rgba(10, 10, 10, 0.9);
+            --ui-border: rgba(51, 255, 51, 0.3);
+            --alert-amber: #ffb000;
+        }
+
+        body, html { margin: 0; padding: 0; height: 100%; background-color: #000; font-family: 'Courier New', Courier, monospace; color: var(--lcd-green); overflow: hidden; }
+        a { color: var(--lcd-green); text-decoration: underline; transition: all 0.2s ease; }
+        a:hover { color: var(--alert-amber); text-shadow: 0 0 8px var(--alert-amber); }
+        a:visited { color: var(--lcd-dim); }
+
+        .lab-environment { width: 100vw; height: 100vh; background: url('kblab.jpg') no-repeat center center; background-size: cover; display: flex; align-items: center; justify-content: center; position: relative; }
+        .lab-environment::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.45); z-index: 1; }
+
+        .terminal-container { width: 90%; max-width: 1050px; height: 85%; background: var(--terminal-black); backdrop-filter: blur(12px); border: 1px solid var(--ui-border); border-radius: 4px; z-index: 10; display: flex; flex-direction: column; position: relative; }
+
+        .system-header { background: rgba(255, 255, 255, 0.05); padding: 10px 15px; font-size: 0.7rem; border-bottom: 1px solid var(--ui-border); display: flex; justify-content: space-between; text-transform: uppercase; }
+
+        .main-layout { display: flex; flex-grow: 1; overflow: hidden; }
+
+        .nav-sidebar { width: 240px; background: rgba(0, 0, 0, 0.3); border-right: 1px solid var(--ui-border); display: flex; flex-direction: column; justify-content: space-between; padding: 20px 10px; }
+        .top-group, .bottom-group { display: flex; flex-direction: column; gap: 10px; }
+
+        /* Log Sub-menu Styling */
+        .log-folder { display: none; flex-direction: column; gap: 5px; padding-left: 15px; margin-top: 5px; }
+        .log-folder.open { display: flex; }
+        .log-item { font-size: 0.65rem; opacity: 0.8; border-style: dotted; }
+
+        button { background: rgba(51, 255, 51, 0.05); border: 1px solid var(--ui-border); color: var(--lcd-green); padding: 12px; text-align: left; cursor: pointer; font-family: inherit; font-size: 0.75rem; transition: all 0.2s ease; }
+        button:hover { background: var(--lcd-green); color: black; box-shadow: 0 0 15px var(--lcd-green); }
+
+        .screen-content { flex-grow: 1; padding: 40px; overflow-y: auto; }
+        #display-text { line-height: 1.6; }
+        .cursor { display: inline-block; width: 8px; height: 15px; background: var(--lcd-green); animation: blink 1s infinite; vertical-align: middle; }
+        
+        .social-link-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px; }
+        .social-link-grid a { border: 1px solid var(--ui-border); padding: 15px; text-decoration: none; text-align: center; font-size: 0.8rem; }
+        .social-link-grid a:hover { background: var(--lcd-green); color: black; }
+
+        @keyframes blink { 0%, 49% { opacity: 1; } 50%, 100% { opacity: 0; } }
+    </style>
+</head>
+<body>
+
+<div class="lab-environment">
+    <div class="terminal-container">
+        <div class="system-header">
+            <span>UPLINK: SECURE</span>
+            <span id="timestamp" style="color: var(--alert-amber)"></span>
+            <span>Station: 02_ Klausner_Lab</span>
+        </div>
+        <div class="main-layout">
+            <nav class="nav-sidebar">
+                <div class="top-group">
+                    <button onclick="updateDisplay('origin')">01_ARCHIVE_1949</button>
+                    
+                    <button onclick="toggleLogs()">02_LOG_ENTRIES</button>
+                    <div id="logMenu" class="log-folder">
+                        <button class="log-item" onclick="updateDisplay('log_01')">_LOG_01</button>
+                    </div>
+
+                    <button onclick="updateDisplay('field')">03_FIELD_RELAY</button>
+                </div>
+
+                <div class="bottom-group">
+                    <button onclick="updateDisplay('social')">SOCIAL MEDIA LINKS</button>
+                    <button onclick="updateDisplay('contact')">[CONTACT_STATION]</button>
+                </div>
+            </nav>
+            <div class="screen-content">
+                <div id="display-text">
+                    [SYSTEM STATUS: 100%]<br><br>
+                    Welcome to the Sound endeavourS Research Terminal.<br><br>
+                    Waiting for module selection on left...<span class="cursor"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<audio id="clickSound" src="https://www.soundjay.com/buttons/sounds/button-16.mp3"></audio>
+
+<script>
+    function updateClock() {
+        const now = new Date();
+        document.getElementById('timestamp').innerText = now.toISOString().split('T')[1].split('.')[0] + " UTC";
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+
+    function toggleLogs() {
+        document.getElementById('clickSound').play();
+        document.getElementById('logMenu').classList.toggle('open');
+    }
+
+    function updateDisplay(key) {
+        document.getElementById('clickSound').play();
+        const screen = document.getElementById('display-text');
+        screen.innerHTML = "DECRYPTING DATA...<span class='cursor'></span>";
+        
+        setTimeout(() => {
+            if (typeof researchData !== 'undefined' && researchData[key]) {
+                const data = researchData[key];
+                screen.innerHTML = `
+                    <h2 style="color:var(--alert-amber); margin-bottom:5px;">${data.title}</h2>
+                    <p style="font-size:0.75rem; opacity:0.7; margin-top:0;">${data.subtitle}</p>
+                    <hr style="border:0; border-top:1px solid var(--ui-border); margin:20px 0;">
+                    ${data.body}
+                    <span class="cursor"></span>
+                `;
+            } else {
+                screen.innerHTML = "<span style='color:red;'>ERROR: DATA_FILE_NOT_FOUND</span><br>Ensure research_data.js is in the same folder.";
+            }
+        }, 300);
+    }
+</script>
+
+</body>
+</html>
