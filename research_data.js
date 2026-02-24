@@ -57,7 +57,7 @@ var researchData = {
             </div>
 
             <div class="audio-link">
-                <button onclick="window.open('https://youtube.com/@klausnersbox', '_blank')" 
+                <button onclick="window.open('https://youtu.be/ZNIhFT7wBno?si=JmWD2-dKGi2k2d8n')" 
                         style="background:var(--alert-amber); color:black; font-weight:bold; width:100%; text-align:center; padding:15px; border:none; cursor:pointer; font-family:inherit;">
                         [▶] MONITOR SIGNAL: TRACK_01
                 </button>
