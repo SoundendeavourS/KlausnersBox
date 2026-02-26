@@ -50,7 +50,7 @@
         social: {
             title: "NETWORK LINKS",
             subtitle: "UPLINK: EXTERNAL_CHANNELS",
-            body: "Follow the frequencies:<br><br>* <a href='https://www.youtube.com/@KlausnersBox' target='_blank'>YouTube</a><br>* <a href='https://x.com/KlausnersBox' target='_blank'>X / Twitter</a><br>* <a href='https://suno.com/@klausnersbox' target='_blank'>Suno</a>"
+            body: "Follow the frequencies:<br><br>* <a href='https://www.youtube.com/@KlausnersBox' target='_blank'>YouTube</a><br>* <a href='https://x.com/KlausnersBox' target='_blank'>X</a><br>* <a href='https://tiktok.com/@KlausnersBox' target='_blank'>TikTok</a><br>* <a href='https://facebook.com/KlausnersBox' target='_blank'>Facebook</a><br>* <a href='https://instagram.com/klausnersbox' target='_blank'>Instagram</a>"
         },
         contact: {
             title: "CONTACT STATION",
