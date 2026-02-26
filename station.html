@@ -16,38 +16,28 @@
         body, html { margin: 0; padding: 0; min-height: 100%; background-color: #000; font-family: 'Courier New', Courier, monospace; color: var(--lcd-green); }
         a { color: var(--lcd-green); text-decoration: underline; transition: all 0.2s ease; }
         a:hover { color: var(--alert-amber); text-shadow: 0 0 8px var(--alert-amber); }
-        a:visited { color: var(--lcd-dim); }
 
         .lab-environment { width: 100vw; min-height: 100vh; background: url('kblab.jpg') no-repeat center center; background-size: cover; display: flex; align-items: center; justify-content: center; position: relative; }
         .lab-environment::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.45); z-index: 1; }
 
         .terminal-container { width: 95%; max-width: 1050px; min-height: 85vh; background: var(--terminal-black); backdrop-filter: blur(12px); border: 1px solid var(--ui-border); border-radius: 4px; z-index: 10; display: flex; flex-direction: column; position: relative; margin: 20px 0; }
 
-        .system-header { background: rgba(255, 255, 255, 0.05); padding: 10px 15px; font-size: 0.7rem; border-bottom: 1px solid var(--ui-border); display: flex; justify-content: space-between; text-transform: uppercase; flex-wrap: wrap; gap: 5px; }
+        .system-header { background: rgba(255, 255, 255, 0.05); padding: 10px 15px; font-size: 0.7rem; border-bottom: 1px solid var(--ui-border); display: flex; justify-content: space-between; text-transform: uppercase; }
 
         .main-layout { display: flex; flex-grow: 1; overflow: hidden; }
 
-        .nav-sidebar { width: 240px; background: rgba(0, 0, 0, 0.3); border-right: 1px solid var(--ui-border); display: flex; flex-direction: column; justify-content: space-between; padding: 20px 10px; flex-shrink: 0; }
-        .top-group, .bottom-group { display: flex; flex-direction: column; gap: 10px; }
-
-        .log-folder { display: none; flex-direction: column; gap: 5px; padding-left: 15px; margin-top: 5px; }
+        .nav-sidebar { width: 240px; background: rgba(0, 0, 0, 0.3); border-right: 1px solid var(--ui-border); display: flex; flex-direction: column; gap: 10px; padding: 20px 10px; flex-shrink: 0; }
+        
+        .log-folder { display: none; flex-direction: column; gap: 5px; padding-left: 15px; }
         .log-folder.open { display: flex; }
-        .log-item { font-size: 0.65rem; opacity: 0.8; border-style: dotted; }
 
         button { background: rgba(51, 255, 51, 0.05); border: 1px solid var(--ui-border); color: var(--lcd-green); padding: 12px; text-align: left; cursor: pointer; font-family: inherit; font-size: 0.75rem; transition: all 0.2s ease; }
         button:hover { background: var(--lcd-green); color: black; box-shadow: 0 0 15px var(--lcd-green); }
 
         .screen-content { flex-grow: 1; padding: 40px; overflow-y: auto; }
-        #display-text { line-height: 1.6; word-wrap: break-word; }
+        #display-text { line-height: 1.6; }
         .cursor { display: inline-block; width: 8px; height: 15px; background: var(--lcd-green); animation: blink 1s infinite; vertical-align: middle; }
         
-        @media (max-width: 768px) {
-            .main-layout { flex-direction: column; overflow: visible; }
-            .nav-sidebar { width: 100%; border-right: none; border-bottom: 1px solid var(--ui-border); box-sizing: border-box; }
-            .screen-content { padding: 20px; }
-            .terminal-container { height: auto; min-height: 90vh; }
-        }
-
         @keyframes blink { 0%, 49% { opacity: 1; } 50%, 100% { opacity: 0; } }
     </style>
 </head>
@@ -62,32 +52,21 @@
         </div>
         <div class="main-layout">
             <nav class="nav-sidebar">
-                <div class="top-group">
-                    <button onclick="updateDisplay('origin')">01_ARCHIVE_1949</button>
-                    <button onclick="toggleLogs()">02_LOG_ENTRIES</button>
-                    <div id="logMenu" class="log-folder">
-                        <button class="log-item" onclick="updateDisplay('log_01')">_LOG_01</button>
-                        <button class="log-item" onclick="updateDisplay('log_02')">_LOG_02</button>
-                        <button class="log-item" onclick="updateDisplay('log_03')">_LOG_03</button>
-                        <button class="log-item" onclick="updateDisplay('log_04')">_LOG_04</button>
-                        <button class="log-item" onclick="updateDisplay('log_05')">_LOG_05</button>
-                        <button class="log-item" onclick="updateDisplay('log_06')">_LOG_06</button>
-                        <button class="log-item" onclick="updateDisplay('log_07')">_LOG_07</button>
-                        <button class="log-item" onclick="updateDisplay('log_08')">_LOG_08</button>
-                        <button class="log-item" onclick="updateDisplay('log_09')">_LOG_09</button>
-                    </div>
-                    <button onclick="updateDisplay('field')">03_FIELD_RELAY</button>
+                <button onclick="updateDisplay('origin')">01_ARCHIVE_1949</button>
+                <button onclick="toggleLogs()">02_LOG_ENTRIES</button>
+                <div id="logMenu" class="log-folder">
+                    <button onclick="updateDisplay('log_01')">_LOG_01</button>
                 </div>
-                <div class="bottom-group" style="margin-top:20px;">
-                    <button onclick="updateDisplay('social')">SOCIAL MEDIA LINKS</button>
-                    <button onclick="updateDisplay('contact')">[CONTACT_STATION]</button>
-                </div>
+                <button onclick="updateDisplay('field')">03_FIELD_RELAY</button>
+                <div style="flex-grow: 1;"></div>
+                <button onclick="updateDisplay('social')">SOCIAL MEDIA LINKS</button>
+                <button onclick="updateDisplay('contact')">[CONTACT_STATION]</button>
             </nav>
             <div class="screen-content">
                 <div id="display-text">
                     [SYSTEM READY]<br><br>
                     Welcome to the Research Terminal.<br><br>
-                    Waiting for module selection...<span class="cursor"></span>
+                    Select a module to begin data retrieval...<span class="cursor"></span>
                 </div>
             </div>
         </div>
@@ -112,9 +91,8 @@
         screen.innerHTML = "FETCHING DATA...<span class='cursor'></span>";
         
         setTimeout(() => {
-            // Check for researchData (the global object we set in research_data.js)
-            if (typeof researchData !== 'undefined' && researchData[key]) {
-                const data = researchData[key];
+            if (window.researchData && window.researchData[key]) {
+                const data = window.researchData[key];
                 screen.innerHTML = `
                     <h2 style="color:var(--alert-amber); margin-bottom:5px;">${data.title}</h2>
                     <p style="font-size:0.75rem; opacity:0.7; margin-top:0;">${data.subtitle}</p>
@@ -122,7 +100,6 @@
                     ${data.body}
                     <span class="cursor"></span>
                 `;
-                screen.scrollTo({ top: 0, behavior: 'smooth' });
             } else {
                 screen.innerHTML = "<span style='color:red;'>ERROR: DATA_NOT_FOUND</span>";
             }
