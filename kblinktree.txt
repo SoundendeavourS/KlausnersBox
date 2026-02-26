@@ -120,7 +120,7 @@
         <a href="https://instagram.com/klausnersbox" class="link-item">INSTAGRAM FIELD LOGS</a>
         <a href="https://tiktok.com/@klausnersboxx" class="link-item">TIKTOK (THE FREQUENCY)</a>
         <a href="https://x.com/klausnersbox" class="link-item">X / TWITTER</a>
-        <a href="https://facebook.com/klausnersbox" class="link-item">FACEBOOK</a>
+        <a href="https://www.facebook.com/profile.php?id=61588503655587" class="link-item">FACEBOOK</a>
         
         <a href="#" class="link-item locked" onclick="alert('ACCESS DENIED: Insufficient Security Level.')">RESTRICTED SCHEMATICS</a>
     </div>
