@@ -67,6 +67,14 @@
                     <button onclick="toggleLogs()">02_LOG_ENTRIES</button>
                     <div id="logMenu" class="log-folder">
                         <button class="log-item" onclick="updateDisplay('log_01')">_LOG_01</button>
+                        <button class="log-item" onclick="updateDisplay('log_02')">_LOG_02</button>
+                        <button class="log-item" onclick="updateDisplay('log_03')">_LOG_03</button>
+                        <button class="log-item" onclick="updateDisplay('log_04')">_LOG_04</button>
+                        <button class="log-item" onclick="updateDisplay('log_05')">_LOG_05</button>
+                        <button class="log-item" onclick="updateDisplay('log_06')">_LOG_06</button>
+                        <button class="log-item" onclick="updateDisplay('log_07')">_LOG_07</button>
+                        <button class="log-item" onclick="updateDisplay('log_08')">_LOG_08</button>
+                        <button class="log-item" onclick="updateDisplay('log_09')">_LOG_09</button>
                     </div>
                     <button onclick="updateDisplay('field')">03_FIELD_RELAY</button>
                 </div>
@@ -104,6 +112,7 @@
         screen.innerHTML = "FETCHING DATA...<span class='cursor'></span>";
         
         setTimeout(() => {
+            // Check for researchData (the global object we set in research_data.js)
             if (typeof researchData !== 'undefined' && researchData[key]) {
                 const data = researchData[key];
                 screen.innerHTML = `
@@ -113,7 +122,7 @@
                     ${data.body}
                     <span class="cursor"></span>
                 `;
-                screen.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                screen.scrollTo({ top: 0, behavior: 'smooth' });
             } else {
                 screen.innerHTML = "<span style='color:red;'>ERROR: DATA_NOT_FOUND</span>";
             }

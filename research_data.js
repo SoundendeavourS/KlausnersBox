@@ -56,4 +56,27 @@
         },
         log_09: { 
             title: "THE ABANDONMENT OF SILICON", 
-            subtitle
+            subtitle: "ENTRY_09", 
+            body: "The decision was made. Klausner began the meticulous process of sourcing period-correct components. Modern silicon was precise, yes, but it lacked the 'soul'—the physical warmth and unpredictable saturation of 1950s vacuum tubes. If he was to hear what his grandfather heard, he had to use the same glass and gas. He spent hours on the dark web of antique radio forums, hunting for matched pairs of NOS (New Old Stock) tubes. The reconstruction was no longer a hobby; it was a reclamation of history." 
+        },
+        
+        field: {
+            title: "FIELD RELAY",
+            subtitle: "STN_LOG: SENSOR_ARRAY_01",
+            body: "Active sensors placed at the edge of the forest. High-frequency oscillations detected at 42kHz. Nature is not silent; it is merely unheard by the uninitiated."
+        },
+        social: {
+            title: "NETWORK LINKS",
+            subtitle: "UPLINK: EXTERNAL_CHANNELS",
+            body: "Follow the frequencies:<br><br>* [YouTube](https://www.youtube.com/@KlausnersBox)<br>* [X / Twitter](https://x.com/KlausnersBox)<br>* [Suno](https://suno.com/@klausnersbox)"
+        },
+        contact: {
+            title: "CONTACT STATION",
+            subtitle: "UPLINK: SECURE_COMMS",
+            body: "To report anomalous frequencies or request data access, transmit your query to the lead researcher via the encrypted channel: [klausnersbox@gmail.com](mailto:klausnersbox@gmail.com)"
+        }
+    };
+
+    // Attach to window so station.html can access it
+    window.researchData = data;
+})();
