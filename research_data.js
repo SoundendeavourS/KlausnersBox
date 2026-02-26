@@ -5,43 +5,69 @@
 
 (function() {
     const data = {
-        // 01_ARCHIVE_1949 Button
+        // 01_ARCHIVE_1949 - THE RECOVERY SUMMARY
         origin: {
-            title: "THE RETURN TO THE FOSSIL",
-            subtitle: "STN_LOG: ARCHIVE_RECOVERY_1949",
-            body: "The air at the edge of the estate was thick with the scent of damp earth and neglected pine, a heavy, rhythmic stillness that Klausner hadn’t felt in decades. The cottage sat like a fossil in the overgrowth, its stone walls surrendered to ivy that seemed to pulse with a slow, vegetable intent. Klausner stood there in the driveway looking at the cottage and the work ahead and smiled. Retirement here, in this peaceful setting is exactly what I need to finally work on my music instead of someone else’s."
+            title: "PROJECT: KLAUSNER'S BOX",
+            subtitle: "STN_LOG: ARCHIVE_SUMMARY_RECOVERY",
+            body: "<b>SUBJECT:</b> Reconstruction of the vibration-capture device.<br><b>STATUS:</b> Active. Reverting to 1950s vacuum-tube schematics.<br><b>NOTES:</b> All silicon-based testing resulted in thermal loops. The greenish-blue crystal is now integrated into the primary housing."
         },
 
-        // _LOG_01 Button
-        log_01: {
-            title: "THE FORBIDDEN LAB",
-            subtitle: "STN_LOG: ENTRY_001",
-            body: "As Klausner turned the heavy iron key—a relic from his father’s desk—the door groaned, a low-frequency protest that vibrated through his marrow. Inside, the dust was a shroud over a life abandoned. The lab was a solid stone structure, almost as big as the cottage and overgrown with ivy. Opening the door, sealed for more than 70 years, released the stale air that smelled of ozone and ancient paper. “This was Granddad’s world, his research lab,” he said to himself, “I will make it mine.”"
+        // 02_LOG_ENTRIES (Mapping the story correctly)
+        log_01: { 
+            title: "LOG_01: THE RETURN TO THE FOSSIL", 
+            subtitle: "ENTRY: 001", 
+            body: "The air at the edge of the estate was thick with the scent of damp earth and neglected pine. The cottage sat like a fossil in the overgrowth. Retirement here is exactly what I need to finally work on my music instead of someone else’s." 
+        },
+        log_02: { 
+            title: "LOG_02: THE FORBIDDEN LAB", 
+            subtitle: "ENTRY: 002", 
+            body: "As Klausner turned the heavy iron key, the door groaned. The lab was a solid stone structure, sealed for more than 70 years. “This was Granddad’s world,” he said to himself, “I will make it mine.”" 
+        },
+        log_03: { 
+            title: "LOG_03: ACTIVATION AND ARIA", 
+            subtitle: "ENTRY: 003", 
+            body: "“Aria, status” he queried. “System status is 100%,” replied Aria. “The power here is noisy but I can filter it.” A thank you from Klausner came naturally, even to his A.I. assistant." 
+        },
+        log_04: { 
+            title: "LOG_04: THE CENTERPIECE", 
+            subtitle: "ENTRY: 004", 
+            body: "Under a tarp sat the ruined “Box”. Kevin found a small crystal; opaque with a cloudy greenish-blue color. “Fascinating,” he quipped. “Aria, analyze this.”" 
+        },
+        log_05: { 
+            title: "LOG_05: THE FAMILY TRAIT", 
+            subtitle: "ENTRY: 005", 
+            body: "As he set his coffee cup down, his hand trembled. That tremor was a family trait; his father had it, and his grandfather before him. “Must be this damp stone,” he thought." 
+        },
+        log_06: { 
+            title: "LOG_06: THE CRYSTAL ANALYSIS", 
+            subtitle: "ENTRY: 006", 
+            body: "“I finished the analysis,” Aria said. “That’s an unusual crystal, Aria. None of its properties suggest why it was part of a scientific experiment.”" 
+        },
+        log_07: { 
+            title: "LOG_07: THE RECONSTRUCTION", 
+            subtitle: "ENTRY: 007", 
+            body: "Klausner continued the chore of setting up his DAW and synthesizers. The silence of the stone room was absolute until Aria’s voice cut through it, startling him." 
+        },
+        log_08: { 
+            title: "LOG_08: THE DRIVING NEED", 
+            subtitle: "ENTRY: 008", 
+            body: "The desire to relax was eclipsed by a driving need to rebuild the Box. “I have a Master’s in Acoustic Engineering. I can rebuild this and get to the bottom of this blight.”" 
+        },
+        log_09: { 
+            title: "LOG_09: ABANDONING SILICON", 
+            subtitle: "ENTRY: 009", 
+            body: "A year of building ended in frustration. Silicon microprocessors failed. Kevin decided to follow the journals to the letter, inserting the crystal into the housing." 
+        },
+        log_10: { 
+            title: "LOG_10: THE HUM AND THE ERUPTION", 
+            subtitle: "ENTRY: 010", 
+            body: "The lights in the lab dimmed significantly. The Box began to hum with a vibration Kevin felt in his teeth. Suddenly, the lab erupted in sound..." 
         },
 
-        // 03_FIELD_RELAY Button
-        field: {
-            title: "THE CRYSTAL ANALYSIS",
-            subtitle: "STN_LOG: FIELD_DATA_STN_02",
-            body: "“I finished the analysis; it should be on your screen now,” Aria said. Kevin leaned forward and arched one brow. “Fascinating,” he said in his Spock impression. “That’s an unusual crystal, Aria. Does it have any properties that suggest why it was part of a scientific experiment?” Aria chided, “None that I’m aware of, Spock.” The crystal is opaque with a cloudy greenish-blue color. Its purpose remains a mystery tucked within the family journals."
-        },
-
-        // SOCIAL MEDIA LINKS Button
-        social: {
-            title: "COMMUNICATIONS HUB",
-            subtitle: "PUBLIC_OUTREACH_PROTOCOL",
-            body: "Monitoring outgoing signals to the public sphere. <br><br>> <a href='https://x.com/KlausnersBox' target='_blank'>UPLINK: X_FEED</a><br>> <a href='https://instagram.com/klausnersbox' target='_blank'>UPLINK: INSTAGRAM</a><br>> <a href='https://suno.com/@klausnersbox' target='_blank'>UPLINK: SUNO_FORGE</a>"
-        },
-
-        // [CONTACT_STATION] Button
-        contact: {
-            title: "CONTACT STATION",
-            subtitle: "ENCRYPTED_CHANNEL",
-            body: "Broadcast your frequency to the lab. We are always listening for the heard and the unheard. <br><br>EMAIL: <a href='mailto:research@klausnersbox.com'>research@klausnersbox.com</a>"
-        }
+        field: { title: "FIELD RELAY", subtitle: "SIGNAL_ANALYSIS", body: "Sensors detecting rhythmic pulses at the 40kHz threshold. Nature is beginning to scream." },
+        social: { title: "COMMUNICATIONS HUB", subtitle: "OUTREACH", body: "Follow the research:<br><br>> <a href='https://x.com/Klausnersbox' target='_blank'>X_FEED</a><br>> <a href='https://suno.com/@klausnersboxx' target='_blank'>SUNO_FORGE</a>" },
+        contact: { title: "CONTACT STATION", subtitle: "ENCRYPTED", body: "Broadcast your frequency: <a href='mailto:research@klausnersbox.com'>research@klausnersbox.com</a>" }
     };
 
-    // This ensures the station.html can find the data regardless of load order
     window.researchData = data;
-    console.log("Klausner Research Data Module: LOADED");
 })();
