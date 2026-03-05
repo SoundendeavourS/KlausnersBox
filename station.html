@@ -56,6 +56,7 @@
                 <button onclick="toggleLogs()">02_LOG_ENTRIES</button>
                 <div id="logMenu" class="log-folder">
                     <button onclick="updateDisplay('log_01')">_LOG_01</button>
+                    <button onclick="updateDisplay('log_02')">_LOG_02</button>
                 </div>
                 <button onclick="updateDisplay('field')">03_FIELD_RELAY</button>
                 <div style="flex-grow: 1;"></div>
@@ -91,13 +92,17 @@
         screen.innerHTML = "FETCHING DATA...<span class='cursor'></span>";
         
         setTimeout(() => {
-            if (window.researchData && window.researchData[key]) {
-                const data = window.researchData[key];
+            let dataEntry = window.researchData[key];
+            if (!dataEntry && window.researchData.logs) {
+                dataEntry = window.researchData.logs[key];
+            }
+
+            if (dataEntry) {
                 screen.innerHTML = `
-                    <h2 style="color:var(--alert-amber); margin-bottom:5px;">${data.title}</h2>
-                    <p style="font-size:0.75rem; opacity:0.7; margin-top:0;">${data.subtitle}</p>
+                    <h2 style="color:var(--alert-amber); margin-bottom:5px;">${dataEntry.title}</h2>
+                    <p style="font-size:0.75rem; opacity:0.7; margin-top:0;">${dataEntry.subtitle}</p>
                     <hr style="border:0; border-top:1px solid var(--ui-border); margin:20px 0;">
-                    ${data.body}
+                    ${dataEntry.body}
                     <span class="cursor"></span>
                 `;
             } else {
