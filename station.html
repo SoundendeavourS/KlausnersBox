@@ -94,6 +94,7 @@
         screen.innerHTML = "FETCHING DATA...<span class='cursor'></span>";
         
         setTimeout(() => {
+            // Check top level first, then fall back to the logs sub-object
             let dataEntry = window.researchData[key];
             if (!dataEntry && window.researchData.logs) {
                 dataEntry = window.researchData.logs[key];
